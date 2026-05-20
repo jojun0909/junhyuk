@@ -41,6 +41,7 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.65;
+      overflow: hidden;
     }
 
     h1,
@@ -230,14 +231,17 @@
       display: grid;
       grid-template-columns: 320px 1fr;
       gap: 26px;
+      height: 100vh;
       padding-top: 98px;
       padding-bottom: 40px;
+      overflow: hidden;
     }
 
     .profile-sidebar {
-      position: sticky;
-      top: 92px;
-      align-self: start;
+      position: static;
+      height: 100%;
+      overflow-y: auto;
+      padding-right: 4px;
     }
 
     .profile-card {
@@ -332,6 +336,9 @@
 
     .main-content {
       min-width: 0;
+      height: 100%;
+      overflow-y: auto;
+      padding-right: 8px;
     }
 
     /* Intro */
@@ -691,6 +698,20 @@
     }
 
     @media (max-width: 760px) {
+      body {
+        overflow: auto;
+      }
+    
+      .page-layout {
+        height: auto;
+        overflow: visible;
+      }
+    
+      .profile-sidebar,
+      .main-content {
+        height: auto;
+        overflow: visible;
+      }
       .container {
         width: min(100% - 26px, var(--max-width));
       }
